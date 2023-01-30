@@ -47,9 +47,16 @@
           <p>{{ couleur }}</p>
         </li>
       </ul> -->
-      <ul v-for="(value, name) in campusLH" :key="campusLH.type">
-        <li>{{ name }} : {{ value }}</li>
+      <ul
+        v-for="(value, name, index) in campusLH"
+        :key="campusLH.id"
+        v-if="isActive ? 'toggle()' : ''"
+      >
+        <li>{{ index }} - {{ name }} : {{ value }}</li>
       </ul>
+      <button @click="toggle">Afficher coordonées campus LH</button>
+      <!-- <button @keydown="increment()">Cliquez ici</button>
+      <p>Nombre de fois cliqué : {{ compteur }}</p> -->
     </div>
   </body>
   <script async src="/assets/js/app.js"></script>
